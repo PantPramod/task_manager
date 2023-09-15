@@ -186,7 +186,7 @@ const Dashboard = () => {
             <header className='p-4 shadow-md flex justify-between items-center w-full relative'>
                 <h1 className='uppercase font-semibold'>Task Manager Dashboard</h1>
                 <div className='flex items-center gap-x-4'>
-                    <div className=''>
+                    <div className='relative'>
                         {!!Number(state.unseen) &&
                             <p
                                 onClick={() => setState({ type: state.showNotification ? "HIDE_NOTIFICATION" : "SHOW_NOTIFICATION", payload: "" })}
@@ -198,19 +198,21 @@ const Dashboard = () => {
                             size={30}
                             onClick={() => setState({ type: state.showNotification ? "HIDE_NOTIFICATION" : "SHOW_NOTIFICATION", payload: "" })}
                         />
-                        {
+                       
+
+                    </div>
+                    <div className='  bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center uppercase'>
+                        {email[0]}
+                    </div>
+
+                </div>
+                {
                             state.showNotification &&
                             <Notifications
                                 notifications={notifications}
                             />
 
                         }
-
-                    </div>
-                    <div className='  bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center uppercase'>
-                        {email[0]}
-                    </div>
-                </div>
             </header>
             <div className='flex min-h-[calc(100vh-80px)] flex-col sm:flex-row'>
                 <div className=' bg-gray-300 w-full sm:w-[300px]'>
